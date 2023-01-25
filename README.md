@@ -22,7 +22,7 @@ This means the kernel function `fn` for `roll`/`padroll` can access data across 
 
 By contrast using the StaticKernels.jl `@kernel` macro will always slide a minimal kernel across all dimensions. Not acessing future values in
 the kernel function will make the kernel causal, but for tabular data / time series we often do not want to stride across non-roll dimensions.
-If you want this behavior it is easy to run and define a kernel with StaticKernels.jl.
+If you want this behavior it is easy to define and run a kernel with StaticKernels.jl.
 
 ## Future
 In the future part or all of this package may be reimplemented with [LoopVectorization.jl](https://github.com/JuliaSIMD/LoopVectorization.jl).
