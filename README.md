@@ -17,7 +17,7 @@ We export a function `padroll` that prepends padding to the roll dimension after
 
 ## Implementation
 [StaticKernels.jl](https://github.com/stev47/StaticKernels.jl) is currently the backend for this package.
-The code is fairly simple. We limit the kernel bounds from a negative lookback to `0` (current time) and fully expand across the other dimensions.
+The code is fairly simple. We limit the kernel bounds from a negative lookback `-(w-1)` (where `w` is the window size, `w≥0`) to `0` (current time) and fully expand across the other dimensions.
 This means the kernel function `fn` for `roll`/`padroll` can access data across all non-time slices in each time window.
 
 By contrast using the StaticKernels.jl `@kernel` macro will always slide a minimal kernel across all dimensions. Not acessing future values in
