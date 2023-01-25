@@ -2,6 +2,7 @@ name = "CausalKernels"
 uuid = "8985b3c1-5d09-4d35-a8bc-b2eeed20dbd7"
 authors = ["kevindirect <git@kevindirect.com>"]
 version = "0.1.0"
+license = "BSD-2-Clause"
 
 [deps]
 DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
