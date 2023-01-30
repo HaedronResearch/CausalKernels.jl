@@ -3,7 +3,7 @@
 A kernel is [causal](https://en.wikipedia.org/wiki/Causal_filter) if it only utilizes current and previous inputs in the rolling dimension.
 In most cases the rolling dimension is interpreted as a time dimension.
 
-CausalKernels.jl is a small package that allows you to apply causal kernels to arrays, mainly for time series aplications.
+CausalKernels.jl is a small package that allows you to apply causal kernels to arrays, mainly for time series applications.
 This package is a performant replacement for [MapSlide.jl](https://github.com/kevindirect/MapSlide.jl), however "expanding" operations are
 currently unimplemented here.
 
