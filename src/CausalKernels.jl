@@ -1,6 +1,6 @@
 module CausalKernels
 
-export roll, padroll
+export roll, rollp
 
 using StaticKernels
 using DocStringExtensions: TYPEDSIGNATURES

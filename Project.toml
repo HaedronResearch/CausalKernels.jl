@@ -1,15 +1,12 @@
 name = "CausalKernels"
 uuid = "8985b3c1-5d09-4d35-a8bc-b2eeed20dbd7"
+license = "BSD-2-Clause"
 authors = ["kevindirect <git@kevindirect.com>"]
 version = "0.1.0"
-license = "BSD-2-Clause"
 
 [deps]
 DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 StaticKernels = "4c63dfa8-a427-4548-bd2f-4c19e87a7dc7"
 
-[extras]
-Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
-
-[targets]
-test = ["Test"]
+[compat]
+julia = "^1.2"

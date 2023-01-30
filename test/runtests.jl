@@ -8,10 +8,10 @@ using Test
 			@test all(roll(w->w[lb], v, w) .== 1:rend+lb)
 			@test all(roll(1, w->w[lb], v, w) .== 1:rend+lb)
 
-			pv = padroll(w->w[lb], v, w)
+			pv = rollp(w->w[lb], v, w)
 			@test all(ismissing.(pv[1:w-1])) && all(pv[w:end] .== 1:rend+lb)
 
-			pv = padroll(1, w->w[lb], v, w)
+			pv = rollp(1, w->w[lb], v, w)
 			@test all(ismissing.(pv[1:w-1])) && all(pv[w:end] .== 1:rend+lb)
 		end
 	end
@@ -26,13 +26,13 @@ end
 			@test all(roll(1, w->w[lb, col], mlong, w) .== mlong[1:rend+lb, col+1])
 			@test all(roll(2, w->w[col, lb], mwide, w) .== mwide[col+1, 1:rend+lb]')
 
-			pm = padroll(w->w[lb, col], mlong, w)
+			pm = rollp(w->w[lb, col], mlong, w)
 			@test all(ismissing.(pm[1:w-1, :])) && all(pm[w:end, :] .== mlong[1:rend+lb, col+1])
 
-			pm = padroll(1, w->w[lb, col], mlong, w)
+			pm = rollp(1, w->w[lb, col], mlong, w)
 			@test all(ismissing.(pm[1:w-1, :])) && all(pm[w:end, :].== mlong[1:rend+lb, col+1])
 
-			pm = padroll(2, w->w[col, lb], mwide, w)
+			pm = rollp(2, w->w[col, lb], mwide, w)
 			@test all(ismissing.(pm[:, 1:w-1])) && all(pm[:, w:end] .== mwide[col+1, 1:rend+lb]')
 		end
 	end

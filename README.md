@@ -8,17 +8,17 @@ This package is a performant replacement for [MapSlide.jl](https://github.com/ke
 currently unimplemented here.
 
 ## Exports
-The functions `roll` and `padroll`.
+The functions `roll` and `rollp`.
 
 ## Notes
 We don't use any extension support from StaticKernels.jl.
 In the future wrappers for extension across non-rolling dimensions may be included.
-We export a function `padroll` that prepends padding to the roll dimension after the rolling map is applied.
+We export a function `rollp` that prepends padding to the roll dimension after the rolling map is applied.
 
 ## Implementation
 [StaticKernels.jl](https://github.com/stev47/StaticKernels.jl) is currently the backend for this package.
 The code is fairly simple. We limit the kernel bounds from a negative lookback `-(w-1)` (where `w` is the window size, `w≥0`) to `0` (current time) and fully expand across the other dimensions.
-This means the kernel function `fn` for `roll`/`padroll` can access data across all non-time slices in each time window.
+This means the kernel function `fn` for `roll`/`rollp` can access data across all non-time slices in each time window.
 
 By contrast using the StaticKernels.jl `@kernel` macro will always slide a minimal kernel across all dimensions. Not acessing future values in
 the kernel function will make the kernel causal, but for tabular data / time series we often do not want to stride across non-roll dimensions.
