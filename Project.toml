@@ -1,7 +1,7 @@
 name = "CausalKernels"
 uuid = "8985b3c1-5d09-4d35-a8bc-b2eeed20dbd7"
-license = "BSD-2-Clause"
 authors = ["kevindirect <git@kevindirect.com>"]
+license = "BSD-3-Clause"
 version = "0.1.0"
 
 [deps]
