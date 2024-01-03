@@ -1,16 +1,26 @@
 # CausalKernels.jl
 
+## Purpose
 A kernel is [causal](https://en.wikipedia.org/wiki/Causal_filter) if it only utilizes current and previous inputs in the rolling dimension.
 In most cases the rolling dimension is interpreted as a time dimension.
 
 CausalKernels.jl is a small package that allows you to apply causal kernels to arrays, mainly for time series applications.
-This package is a performant replacement for [MapSlide.jl](https://github.com/kevindirect/MapSlide.jl), however "expanding" operations are
+This package is a performant replacement for [MapSlide.jl](https://github.com/HaedronResearch/MapSlide.jl), however "expanding" operations are
 currently unimplemented here.
 
-## Exports
-The functions `roll` and `rollp`.
+## Install
+Install this package to your Julia project environment as you would any other package from a Git repo.
 
-## Notes
+From the Julia REPL:
+```
+julia> ]
+(MyProject) pkg> add https://github.com/HaedronResearch/CausalKernels.jl
+```
+
+## Overview
+The package exports the functions `roll` and `rollp`.
+
+### Notes
 We don't use any extension support from StaticKernels.jl.
 In the future wrappers for extension across non-rolling dimensions may be included.
 We export a function `rollp` that prepends padding to the roll dimension after the rolling map is applied.
@@ -24,5 +34,5 @@ By contrast using the StaticKernels.jl `@kernel` macro will always slide a minim
 the kernel function will make the kernel causal, but for tabular data / time series we often do not want to stride across non-roll dimensions.
 If you want this behavior it is easy to define and run a kernel with StaticKernels.jl.
 
-## Future
+### Future
 In the future part or all of this package may be reimplemented with [LoopVectorization.jl](https://github.com/JuliaSIMD/LoopVectorization.jl).
